@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="icons"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="E:/Studia/Inz/inz/src/inz/postgresql-42.1.4.jar"/>
+	<classpathentry kind="lib" path="E:/Studia/Inz/inz/src/inz/syntheticaAluOxide.jar"/>
+	<classpathentry kind="lib" path="E:/Studia/Inz/inz/src/inz/synthetica.jar"/>
+	<classpathentry kind="lib" path="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.core.databinding_1.6.0.v20160412-0910.jar" sourcepath="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.core.databinding_1.6.0.v20160412-0910.jar"/>
+	<classpathentry kind="lib" path="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.core.databinding.beans_1.3.100.v20160509-1025.jar" sourcepath="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.core.databinding.beans_1.3.100.v20160509-1025.jar"/>
+	<classpathentry kind="lib" path="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.core.databinding.observable_1.6.0.v20160511-1747.jar" sourcepath="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.core.databinding.observable_1.6.0.v20160511-1747.jar"/>
+	<classpathentry kind="lib" path="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.core.databinding.property_1.6.0.v20160427-0852.jar" sourcepath="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.core.databinding.property_1.6.0.v20160427-0852.jar"/>
+	<classpathentry kind="lib" path="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.jface.databinding_1.8.1.v20161026-1531.jar" sourcepath="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.jface.databinding_1.8.1.v20161026-1531.jar"/>
+	<classpathentry kind="lib" path="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.equinox.common_3.8.0.v20160509-1230.jar" sourcepath="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/org.eclipse.equinox.common_3.8.0.v20160509-1230.jar"/>
+	<classpathentry kind="lib" path="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/com.ibm.icu_56.1.0.v201601250100.jar" sourcepath="E:/Studia/eclipse-jee-neon-3-win32-x86_64/eclipse/plugins/com.ibm.icu_56.1.0.v201601250100.jar"/>
+	<classpathentry kind="lib" path="E:/Studia/ProjektINZ/inz/org.eclipse.ui.forms_3.2.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
