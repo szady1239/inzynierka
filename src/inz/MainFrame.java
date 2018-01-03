@@ -130,10 +130,9 @@ public class MainFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				ServiceAddFrame serviceAddFrame = new ServiceAddFrame();
 				serviceAddFrame.main(null);
-				//DODAWANIE US£UGI
 			}
 		});
-		label_1.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\add-128.png"));
+		label_1.setIcon(new ImageIcon("D:\\ProjektINZ\\inzynierka\\icons\\add-128.png"));
 		label_1.setSize(new Dimension(180, 180));
 		label_1.setBounds(10, 240, 191, 181);
 		panel_3.add(label_1);
@@ -168,12 +167,19 @@ public class MainFrame {
 			}
 		});
 		label.setSize(new Dimension(180, 180));
-		label.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\Answer.png"));
+		label.setIcon(new ImageIcon("D:\\ProjektINZ\\inzynierka\\icons\\Answer.png"));
 		label.setBounds(211, 289, 191, 181);
 		panel.add(label);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\add-128.png"));
+		label_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				QuestionnareAddFrame questionnareAddFrame = new QuestionnareAddFrame();
+				questionnareAddFrame.main(null);
+			}
+		});
+		label_2.setIcon(new ImageIcon("D:\\ProjektINZ\\inzynierka\\icons\\add-128.png"));
 		label_2.setSize(new Dimension(180, 180));
 		label_2.setBounds(10, 289, 191, 181);
 		panel.add(label_2);
@@ -200,7 +206,7 @@ public class MainFrame {
 		panel_1.add(table_3);
 		
 		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\add-128.png"));
+		label_3.setIcon(new ImageIcon("D:\\ProjektINZ\\inzynierka\\icons\\add-128.png"));
 		label_3.setSize(new Dimension(180, 180));
 		label_3.setBounds(10, 288, 191, 181);
 		panel_1.add(label_3);
