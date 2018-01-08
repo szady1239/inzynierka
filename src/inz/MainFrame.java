@@ -121,7 +121,10 @@ public class MainFrame {
 				new Object[][] {
 						{ ServiceList.get(0).id_service, ServiceList.get(0).name, ServiceList.get(0).quality_score },
 						{ ServiceList.get(1).id_service, ServiceList.get(1).name, ServiceList.get(1).quality_score },
-						{ ServiceList.get(2).id_service, ServiceList.get(2).name, ServiceList.get(2).quality_score }, },
+						{ ServiceList.get(2).id_service, ServiceList.get(2).name, ServiceList.get(2).quality_score },
+						{ ServiceList.get(3).id_service, ServiceList.get(3).name, ServiceList.get(3).quality_score },
+						{ ServiceList.get(4).id_service, ServiceList.get(4).name, ServiceList.get(4).quality_score },
+						{ ServiceList.get(5).id_service, ServiceList.get(5).name, ServiceList.get(5).quality_score },},
 				new String[] { "New column", "New column", "New column" }));
 		
 		JLabel label_1 = new JLabel("");
@@ -132,10 +135,31 @@ public class MainFrame {
 				serviceAddFrame.main(null);
 			}
 		});
-		label_1.setIcon(new ImageIcon("D:\\ProjektINZ\\inzynierka\\icons\\add-128.png"));
+		label_1.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\add-128.png"));
 		label_1.setSize(new Dimension(180, 180));
 		label_1.setBounds(10, 240, 191, 181);
 		panel_3.add(label_1);
+		
+		JLabel label_4 = new JLabel("");
+		label_4.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\Calculate.png"));
+		label_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//EKRAN WYLICZANIA JAKOŒCI
+				QualityCalculateFrame qualityCalculateFrame = new QualityCalculateFrame();
+				qualityCalculateFrame.main(null);
+				frame.repaint();
+			}
+		});
+		label_4.setSize(new Dimension(180, 180));
+		label_4.setBounds(211, 240, 191, 181);
+		panel_3.add(label_4);
+		
+		JLabel label_5 = new JLabel("");
+		label_5.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\minus.png"));
+		label_5.setSize(new Dimension(180, 180));
+		label_5.setBounds(412, 240, 198, 184);
+		panel_3.add(label_5);
 
 		JPanel panel = new JPanel();
 		panel.setBounds(10, 449, 875, 481);
@@ -152,7 +176,9 @@ public class MainFrame {
 				{ QuestionnareList.get(0).id, QuestionnareList.get(0).name, QuestionnareList.get(0).service },
 				{ QuestionnareList.get(1).id, QuestionnareList.get(1).name, QuestionnareList.get(1).service },
 				{ QuestionnareList.get(2).id, QuestionnareList.get(2).name, QuestionnareList.get(2).service },
-				{ QuestionnareList.get(3).id, QuestionnareList.get(3).name, QuestionnareList.get(3).service }, },
+				{ QuestionnareList.get(3).id, QuestionnareList.get(3).name, QuestionnareList.get(3).service },
+				{ QuestionnareList.get(4).id, QuestionnareList.get(4).name, QuestionnareList.get(4).service }, 
+				{ QuestionnareList.get(5).id, QuestionnareList.get(5).name, QuestionnareList.get(5).service }, },
 				new String[] { "L. p", "Nazwa", "Us\u0142uga" }));
 		table_2.getColumnModel().getColumn(0).setMaxWidth(200);
 		table_2.setBounds(10, 51, 855, 227);
@@ -167,7 +193,7 @@ public class MainFrame {
 			}
 		});
 		label.setSize(new Dimension(180, 180));
-		label.setIcon(new ImageIcon("D:\\ProjektINZ\\inzynierka\\icons\\Answer.png"));
+		label.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\Answer.png"));
 		label.setBounds(211, 289, 191, 181);
 		panel.add(label);
 		
@@ -179,10 +205,16 @@ public class MainFrame {
 				questionnareAddFrame.main(null);
 			}
 		});
-		label_2.setIcon(new ImageIcon("D:\\ProjektINZ\\inzynierka\\icons\\add-128.png"));
+		label_2.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\add-128.png"));
 		label_2.setSize(new Dimension(180, 180));
 		label_2.setBounds(10, 289, 191, 181);
 		panel.add(label_2);
+		
+		JLabel label_6 = new JLabel("");
+		label_6.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\minus.png"));
+		label_6.setSize(new Dimension(180, 180));
+		label_6.setBounds(364, 289, 198, 184);
+		panel.add(label_6);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(919, 449, 875, 481);
@@ -206,10 +238,23 @@ public class MainFrame {
 		panel_1.add(table_3);
 		
 		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon("D:\\ProjektINZ\\inzynierka\\icons\\add-128.png"));
+		label_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				CriteriaAddFrame criteriaAddFrame = new CriteriaAddFrame();
+				criteriaAddFrame.main(null);
+			}
+		});
+		label_3.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\add-128.png"));
 		label_3.setSize(new Dimension(180, 180));
 		label_3.setBounds(10, 288, 191, 181);
 		panel_1.add(label_3);
+		
+		JLabel label_7 = new JLabel("");
+		label_7.setIcon(new ImageIcon("E:\\Studia\\ProjektINZ\\inz\\icons\\minus.png"));
+		label_7.setSize(new Dimension(180, 180));
+		label_7.setBounds(211, 288, 198, 184);
+		panel_1.add(label_7);
 	}
 
 	private ArrayList<ServiceEntity> generateServiceList(ResultSet resultSetService) {

@@ -17,6 +17,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -47,7 +49,7 @@ public class CriteriaAddFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public CriteriaAddFrame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -86,7 +88,6 @@ public class CriteriaAddFrame extends JFrame {
 		btnWylij.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				// WYWO£ANIE ZAPISANIA DO BAZY
 				Connection connection = null;
 
 				try {
@@ -101,9 +102,9 @@ public class CriteriaAddFrame extends JFrame {
 
 				}
 				String name = textField.getText();
-				float criteriaValue = Float.parseFloat((textField_1.getText()));
+				Double criteriaValue = Double.parseDouble((textField_1.getText()));
 				try {
-					insertQuestionnareToDB(connection, "public", name, criteriaValue);
+					insertCriteriaToDB(connection, "public", name, criteriaValue);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -114,21 +115,36 @@ public class CriteriaAddFrame extends JFrame {
 		panel.add(btnWylij);
 	}
 
-	public static void insertQuestionnareToDB(Connection con, String dbName, String name, float crValue)
+	public static void insertCriteriaToDB(Connection con, String dbName, String name, double crValue)
 			throws SQLException {
 
 		Statement stmt = null;
-		String currentSeqCrIdValue = "select currval('seq_cr_id')";
-		String insertQuery_cr = "insert into " + dbName + ".criteria_ratio"
-				+ "(id_cr, criteria_value) values (" + "nextval('seq_cr_id')" + crValue + ");";
-		String insertQuery_criteria = "insert into " + dbName + ".criteria"
-				+ "(id_criteria, name, criteria_ratio_id_cr) values (" + "nextval('seq_criteria_id')" + ", '"
-				+ name + "', " + ", '"+  currentSeqCrIdValue + "', " + ");";
+		ResultSet rs = null;
+		
 
 		try {
 			stmt = con.createStatement(1004, 1007);
-			stmt.executeUpdate(insertQuery_cr);
-			stmt.executeUpdate(insertQuery_criteria);
+			String currentSeqCrIdValue = "select nextval('seq_cr_id')";
+			String insertQuery_cr = "insert into " + dbName + ".criteria_ratio"
+					+ "(id_cr, criteria_value)VALUES (?, ?);";
+			rs = stmt.executeQuery(currentSeqCrIdValue);
+			rs.next();
+			int fkId = rs.getInt("nextval");
+			PreparedStatement preparedStatement1 = con.prepareStatement(insertQuery_cr);
+			preparedStatement1.setLong(1, fkId);
+			preparedStatement1.setDouble(2, crValue);
+			preparedStatement1.executeUpdate();
+			String currentSeqCIdValue = "select nextval('seq_criteria_id')";
+			rs = stmt.executeQuery(currentSeqCIdValue);
+			rs.next();
+			int criteriaId = rs.getInt("nextval");
+			String insertQuery_criteria = "insert into " + dbName + ".criteria"
+					+ "(id_criteria, name, criteria_ratio_id_cr)VALUES (?, ?, ?);";
+			PreparedStatement preparedStatement2 = con.prepareStatement(insertQuery_criteria);
+			preparedStatement2.setInt(1, criteriaId);
+			preparedStatement2.setString(2, name);
+			preparedStatement2.setInt(3, fkId);
+			preparedStatement2.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Query siê wyjeba³o");
 			e.printStackTrace();
